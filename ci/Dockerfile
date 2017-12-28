@@ -23,3 +23,9 @@ RUN apt-get update \
        texlive-xetex \
   && apt-get autoremove \
   && apt-get clean
+RUN curl -LO https://raw.githubusercontent.com/sphinx-doc/sphinx/stable/test-reqs.txt
+RUN virtualenv -p python3.4 /python3.4 \
+  && /python3.4/bin/pip install -r test-reqs.txt
+
+RUN mkdir /repos /sphinx
+WORKDIR /sphinx
