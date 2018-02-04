@@ -9,6 +9,7 @@ RUN apt-get update \
        build-essential \
        git \
        gettext \
+       graphviz \
        imagemagick \
        make \
        lmodern \
