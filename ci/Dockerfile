@@ -14,7 +14,7 @@ RUN apt-get update \
        imagemagick \
        make \
        lmodern \
-       openjdk-8-jre-headless \
+       openjdk-7-jre-headless \
        python-virtualenv \
        python3-pip \
        python3-dev \
