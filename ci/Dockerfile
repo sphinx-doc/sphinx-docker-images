@@ -7,12 +7,14 @@ RUN apt-get update \
   && apt-get upgrade -y \
   && apt-get install -y \
        build-essential \
+       epubcheck \
        git \
        gettext \
        graphviz \
        imagemagick \
        make \
        lmodern \
+       openjdk-8-jre-headless \
        python-virtualenv \
        python3-pip \
        python3-dev \
