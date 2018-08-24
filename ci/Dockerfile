@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM ubuntu:xenial
 MAINTAINER i.tkomiya@gmail.com
 
 ENV LANG C.UTF-8
@@ -13,7 +13,7 @@ RUN apt-get update \
        imagemagick \
        make \
        lmodern \
-       openjdk-7-jre-headless \
+       openjdk-9-jre-headless \
        python-virtualenv \
        python3-pip \
        python3-dev \
@@ -27,9 +27,9 @@ RUN apt-get update \
   && apt-get clean
   
 # Install test dependencies
-RUN virtualenv -p python3.4 /python3.4 \
-  && /python3.4/bin/pip install "Sphinx[test,websupport]" \
-  && /python3.4/bin/pip uninstall -y Sphinx
+RUN virtualenv -p python3.5 /python3.5 \
+  && /python3.5/bin/pip install "Sphinx[test,websupport]" \
+  && /python3.5/bin/pip uninstall -y Sphinx
 
 RUN mkdir /repos /sphinx
 WORKDIR /sphinx
