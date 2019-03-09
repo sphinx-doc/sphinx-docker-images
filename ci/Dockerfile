@@ -1,6 +1,7 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 MAINTAINER i.tkomiya@gmail.com
 
+ENV DEBIAN_FRONTEND=noninteractive
 ENV LANG C.UTF-8
 ENV TERM xterm
 RUN apt-get update \
@@ -14,7 +15,7 @@ RUN apt-get update \
        imagemagick \
        make \
        lmodern \
-       openjdk-9-jre-headless \
+       openjdk-11-jre-headless \
        python-virtualenv \
        python3-pip \
        python3-dev \
@@ -26,11 +27,11 @@ RUN apt-get update \
        texlive-xetex \
   && apt-get autoremove \
   && apt-get clean
-  
+
 # Install test dependencies
-RUN virtualenv -p python3.5 /python3.5 \
-  && /python3.5/bin/pip install "Sphinx[test,websupport]" \
-  && /python3.5/bin/pip uninstall -y Sphinx
+RUN virtualenv -p python3.6 /python3.6 \
+  && /python3.6/bin/pip install "Sphinx[test,websupport]" \
+  && /python3.6/bin/pip uninstall -y Sphinx
 
 RUN mkdir /repos /sphinx
 WORKDIR /sphinx
