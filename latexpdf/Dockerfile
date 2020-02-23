@@ -1,7 +1,9 @@
 FROM python:slim
 LABEL maintainer="Sphinx Team <https://www.sphinx-doc.org/>"
 
-RUN apt-get install -y \
+WORKDIR /docs
+RUN apt-get update \
+ && apt-get install -y \
       graphviz \
       imagemagick \
       make \
