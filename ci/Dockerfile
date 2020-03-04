@@ -30,7 +30,7 @@ RUN apt-get update \
 
 # Install test dependencies
 RUN virtualenv -p python3.6 /python3.6 \
-  && /python3.6/bin/pip install "Sphinx[test,websupport]" \
+  && /python3.6/bin/pip install "Sphinx[test]" \
   && /python3.6/bin/pip uninstall -y Sphinx
 
 RUN mkdir /repos /sphinx
