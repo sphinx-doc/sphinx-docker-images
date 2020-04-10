@@ -22,6 +22,6 @@ RUN apt-get update \
  && apt-get clean
 
 RUN python3 -m pip install -U pip
-RUN python3 -m pip install Sphinx==3.0.0 Pillow
+RUN python3 -m pip install Sphinx==3.0.1 Pillow
 
 CMD ["make", "latexpdf"]
