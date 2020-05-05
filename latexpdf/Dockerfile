@@ -19,7 +19,8 @@ RUN apt-get update \
       texlive-luatex \
       texlive-xetex \
  && apt-get autoremove \
- && apt-get clean
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
 
 RUN python3 -m pip install -U pip
 RUN python3 -m pip install Sphinx==3.0.3 Pillow
