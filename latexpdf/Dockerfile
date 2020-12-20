@@ -23,6 +23,6 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 RUN python3 -m pip install --no-cache-dir -U pip
-RUN python3 -m pip install --no-cache-dir Sphinx==3.3.1 Pillow
+RUN python3 -m pip install --no-cache-dir Sphinx==3.4.0 Pillow
 
 CMD ["make", "latexpdf"]
