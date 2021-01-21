@@ -22,6 +22,7 @@ RUN apt-get update \
        texlive-latex-recommended \
        texlive-latex-extra \
        texlive-fonts-recommended \
+       tex-gyre \
        texlive-fonts-extra \
        texlive-luatex \
        texlive-xetex \
