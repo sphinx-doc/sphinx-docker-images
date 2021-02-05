@@ -15,6 +15,7 @@ RUN apt-get update \
       texlive-fonts-recommended \
       texlive-fonts-extra \
       texlive-lang-cjk \
+      texlive-lang-chinese \
       texlive-lang-japanese \
       texlive-luatex \
       texlive-xetex \
