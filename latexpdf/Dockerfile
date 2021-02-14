@@ -10,11 +10,13 @@ RUN apt-get update \
       \
       latexmk \
       lmodern \
+      fonts-freefont-otf \
       texlive-latex-recommended \
       texlive-latex-extra \
       texlive-fonts-recommended \
       texlive-fonts-extra \
       texlive-lang-cjk \
+      texlive-lang-chinese \
       texlive-lang-japanese \
       texlive-luatex \
       texlive-xetex \
