@@ -20,6 +20,7 @@ RUN apt-get update \
       texlive-lang-japanese \
       texlive-luatex \
       texlive-xetex \
+      xindy \
  && apt-get autoremove \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
