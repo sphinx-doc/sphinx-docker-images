@@ -16,7 +16,7 @@ Note:
 Create a Sphinx project::
 
 ```bash
-$ docker run --rm -v /path/to/document:/docs sphinxdoc/sphinx sphinx-quickstart
+$ docker run -it --rm -v /path/to/document:/docs sphinxdoc/sphinx sphinx-quickstart
 ```
 
 Build HTML document::
