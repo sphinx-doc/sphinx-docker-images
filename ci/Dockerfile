@@ -16,7 +16,7 @@ RUN apt-get update \
        make \
        lmodern \
        openjdk-11-jre-headless \
-       python-virtualenv \
+       python3-virtualenv \
        python3-pip \
        python3-dev \
        texlive-latex-recommended \
