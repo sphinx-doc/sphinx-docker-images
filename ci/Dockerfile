@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 MAINTAINER i.tkomiya@gmail.com
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -30,9 +30,9 @@ RUN apt-get update \
   && apt-get clean
 
 # Install test dependencies
-RUN virtualenv -p python3.6 /python3.6 \
-  && /python3.6/bin/pip install "Sphinx[test]" \
-  && /python3.6/bin/pip uninstall -y Sphinx
+RUN virtualenv -p python3.8 /python3.8 \
+  && /python3.8/bin/pip install "Sphinx[test]" \
+  && /python3.8/bin/pip uninstall -y Sphinx
 
 RUN mkdir /repos /sphinx
 WORKDIR /sphinx
