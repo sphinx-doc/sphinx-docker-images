@@ -21,6 +21,7 @@ RUN apt-get update \
       texlive-luatex \
       texlive-xetex \
       xindy \
+      tex-gyre \
  && apt-get autoremove \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
