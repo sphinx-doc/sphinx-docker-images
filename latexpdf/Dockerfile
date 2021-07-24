@@ -1,32 +1,14 @@
-FROM python:slim
+FROM fedora
 LABEL maintainer="Sphinx Team <https://www.sphinx-doc.org/>"
 
 WORKDIR /docs
-RUN apt-get update \
- && apt-get install --no-install-recommends -y \
-      graphviz \
-      imagemagick \
-      make \
-      \
-      latexmk \
-      lmodern \
-      fonts-freefont-otf \
-      texlive-latex-recommended \
-      texlive-latex-extra \
-      texlive-fonts-recommended \
-      texlive-fonts-extra \
-      texlive-lang-cjk \
-      texlive-lang-chinese \
-      texlive-lang-japanese \
-      texlive-luatex \
-      texlive-xetex \
-      xindy \
-      tex-gyre \
- && apt-get autoremove \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
-
-RUN python3 -m pip install --no-cache-dir -U pip
-RUN python3 -m pip install --no-cache-dir Sphinx==4.1.1 Pillow
+RUN echo -e 'assumeyes=True\ninstall_weak_deps=False\ntsflags=nodocs' >> /etc/dnf/dnf.conf \
+    # Install latex with Chinese support
+    && dnf in make latexmk texlive-{xetex,xindy,cmap,xecjk,gnu-freefont,fncychap,wrapfig,capt-of,framed,upquote,needspace,tabulary,parskip,fandol}\
+       pip \
+    && pip --no-cache-dir install setuptools
+    && pip install --no-cache-dir Sphinx Pillow
+    && dnf autoremove \
+    && dnf clean all
 
 CMD ["make", "latexpdf"]
