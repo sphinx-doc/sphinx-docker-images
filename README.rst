@@ -8,14 +8,14 @@ Images
 - ``sphinx`` --
   Main Sphinx image --
   `Docker Hub <https://hub.docker.com/r/sphinxdoc/sphinx>`__,
-  `GitHub Container Registry <https://github.com/sphinx-doc/docker/pkgs/container/sphinx>`__
+  `GitHub Container Registry <https://ghcr.io/sphinx-doc/sphinx>`__
 - ``sphinx-latexpdf`` --
   Image for LaTeX --
   `Docker Hub <https://hub.docker.com/r/sphinxdoc/sphinx-latexpdf>`__,
-  `GitHub Container Registry <https://github.com/sphinx-doc/docker/pkgs/container/sphinx-latexpdf>`__
+  `GitHub Container Registry <https://ghcr.io/sphinx-doc/sphinx-latexpdf>`__
 
-.. note:: The ``sphinx-latexpdf`` container contains TeXLive images, meaning it
-          is very large (over 2GB).
+.. note:: The ``sphinx-latexpdf`` container contains TeXLive images,
+          meaning it is very large (over 2GiB).
 
 Usage
 =====
@@ -30,19 +30,19 @@ Build HTML document:
 
 .. code:: bash
 
-   $ docker run --rm -v /path/to/document:/docs sphinxdoc/sphinx make html
+   $ docker run --rm -v /path/to/document:/docs sphinxdoc/sphinx sphinx-build -M html . _build
 
 Build EPUB document:
 
 .. code:: bash
 
-   $ docker run --rm -v /path/to/document:/docs sphinxdoc/sphinx make epub
+   $ docker run --rm -v /path/to/document:/docs sphinxdoc/sphinx sphinx-build -M epub . _build
 
 Build PDF document:
 
 .. code:: bash
 
-   $ docker run --rm -v /path/to/document:/docs sphinxdoc/sphinx-latexpdf make latexpdf
+   $ docker run --rm -v /path/to/document:/docs sphinxdoc/sphinx-latexpdf sphinx-build -M latexpdf . _build
 
 Tips
 ====
@@ -56,7 +56,7 @@ To install additional dependencies, use ``sphinxdoc/sphinx`` as a base image:
 
    WORKDIR /docs
    ADD requirements.txt /docs
-   RUN pip3 install -r requirements.txt
+   RUN python3 -m pip install -r requirements.txt
 
 Sphinx CI Docker Image
 ======================
