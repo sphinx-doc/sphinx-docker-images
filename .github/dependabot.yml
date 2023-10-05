@@ -5,7 +5,7 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "montly"
+      interval: "monthly"
     groups:
        # Name for the group, which will be used in PR titles and branch names
        all-github-actions:
