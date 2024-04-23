@@ -1,11 +1,11 @@
 FROM python:slim
 
-LABEL org.opencontainers.image.authors = "Sphinx Team <https://www.sphinx-doc.org/>"
-LABEL org.opencontainers.image.documentation = "https://sphinx-doc.org/"
-LABEL org.opencontainers.image.source = "https://github.com/sphinx-doc/sphinx-docker-images"
-LABEL org.opencontainers.image.version = "7.3.6"
-LABEL org.opencontainers.image.licenses = "BSD-2-Clause"
-LABEL org.opencontainers.image.description = "LaTeX container image for Sphinx"
+LABEL org.opencontainers.image.authors="Sphinx Team <https://www.sphinx-doc.org/>"
+LABEL org.opencontainers.image.documentation="https://sphinx-doc.org/"
+LABEL org.opencontainers.image.source="https://github.com/sphinx-doc/sphinx-docker-images"
+LABEL org.opencontainers.image.version="7.3.6"
+LABEL org.opencontainers.image.licenses="BSD-2-Clause"
+LABEL org.opencontainers.image.description="LaTeX container image for Sphinx"
 
 WORKDIR /docs
 RUN apt-get update \
