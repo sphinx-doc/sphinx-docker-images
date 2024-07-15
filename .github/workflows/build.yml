@@ -18,15 +18,15 @@ jobs:
             context: latexpdf
     steps:
       - uses: actions/checkout@v4
-      - uses: docker/setup-qemu-action@68827325e0b33c7199eb31dd4e31fbe9023e06e3  # v3.0.0
-      - uses: docker/setup-buildx-action@2b51285047da1547ffb1b2203d8be4c0af6b1f20  # v3.2.0
+      - uses: docker/setup-qemu-action@5927c834f5b4fdf503fca6f4c7eccda82949e1ee  # v3.1.0
+      - uses: docker/setup-buildx-action@4fd812986e6c8c2a69e18311145f9371337f27d4  # v3.4.0
       - name: Log in to Docker Hub
-        uses: docker/login-action@e92390c5fb421da1463c202d546fed0ec5c39f20  # v3.1.0
+        uses: docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446  # v3.2.0
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Log in to GitHub Container Registry
-        uses: docker/login-action@e92390c5fb421da1463c202d546fed0ec5c39f20  # v3.1.0
+        uses: docker/login-action@0d4c9c5ea7693da7b068278f7b52bda2a190a446  # v3.2.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
@@ -40,7 +40,7 @@ jobs:
             ghcr.io/sphinx-doc/${{ matrix.name }}
           tags: type=pep440,pattern={{version}}
       - name: Build and push Docker image
-        uses: docker/build-push-action@2cdde995de11925a030ce8070c3d77a52ffcf1c0  # v5.3.0
+        uses: docker/build-push-action@1a162644f9a7e87d8f4b053101d1d9a712edc18c  # v6.3.0
         with:
           context: ${{ matrix.context }}
           platforms: linux/amd64,linux/arm64
